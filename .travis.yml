@@ -1,7 +1,21 @@
 language: python
+
 python:
   - "3.6"      # current default Python on Travis CI
   - "3.7"
   - "3.8"
+
 script:
   - python -m unittest discover -s tests -p 'test_*.py'
+
+jobs:
+  include:
+    - stage: release
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script:
+          - nvm install lts/*
+          - npx semantic-release
+        on:
+          branch: main
