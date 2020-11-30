@@ -6,7 +6,6 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name = 'genrex',
     packages = ['genrex'],
-    version = '0.1',
     license='MIT',
     description = 'Genrex generates matching strings to a given regular expressions.',
     author = 'abichinger',
